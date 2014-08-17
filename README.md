@@ -1,6 +1,10 @@
 Tetris
 ======
 
+You can usually try the working latest version at: 
+
+http://tamas-szabo.com/tetris/
+
 Why?
 ----
 
