@@ -1,0 +1,7 @@
+/target
+/resources/public/js/compiled
+
+.*.swp
+
+.DS_Store
+.DS_Store?
