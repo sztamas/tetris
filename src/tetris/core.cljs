@@ -126,7 +126,7 @@
     (dom/setTextContent score-el (str level))))
 
 (defn render-next-piece [{piece-type :type :as p}]
-  (let [score-el (.getElementById js/document "next-img")]
+  (let [score-el (.getElementById js/document "next-img-container")]
     (dom/removeChildren score-el)
     (dom/appendChild score-el (piece-type PIECE-IMAGES))))
 
