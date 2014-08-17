@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+  </head>
+  <body>
+    <div id="main-area">
+      <h1>Tetris</h1>
+      <div id="container">
+        <div id="board-area">
+          <canvas id="tetris-board" width="300" height="600">
+          </canvas>
+        </div>
+        <div id="display-area">
+          <div id="level">
+             Level: <span id="level-value"></span>
+          </div>
+          <div id="score">
+             Score: <span id="score-value"></span>
+          </div>
+          <div id="next-piece">
+             Next:
+           </div>
+           <div id="next-img-container">
+             <img id="next-img"></img>
+           </div>
+           <div id="keys-area">
+             <div id="keys-area-header">Key Bindings</div>
+             <div class="keybinding">N - New Game</div> 
+             <div class="keybinding">P - Pause Game</div> 
+             <div class="keybinding">&#x21e7; - Rotate</div> 
+             <div class="keybinding">&#x21e9; - Soft Drop</div> 
+             <div class="keybinding">&#x21e6; - Move Left</div> 
+             <div class="keybinding">&#x21e8; - Move Right</div> 
+           </div>
+          </div>
+      </div>
+    </div>
+    <script src="js/tetris_prod.js" type="text/javascript"></script>
+  </body>
+</html>
