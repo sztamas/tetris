@@ -66,7 +66,7 @@ For example this is the function that handles all the events:
 
 As you can see all the processing happens in one place. The code isn't scattered around callbacks. 
 
-Also note that the event are high level ie. we don't handle left-arrow keydown we handle a higher level :move-left event.
+Also note that the event are high level ie. we don't handle left-arrow keydown we handle a higher level `:move-left` event.
 This means that changing keybindings is trivial, but also that if we wanted to support a mouse (or gestures) all we have to do is make sure that a mouse listener will put a :move-left event in our event-channel. The rest of the code stays the same.
 
 As another example the speed at which the falling piece falls is implemented by a ticker that puts `:tick` events on a channel at high speed. The `tick channel` is throttled then by a generic `channel throttler` that throttles based on the current level reached in the game.
