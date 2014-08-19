@@ -6,9 +6,7 @@
   :dependencies [[org.clojure/clojure "1.6.0"]
                  [org.clojure/clojurescript "0.0-2202"]
                  [figwheel "0.1.3-SNAPSHOT"]
-                 [org.clojure/core.async "0.1.278.0-76b25b-alpha"]
-                 [sablono "0.2.16"]
-                 [om "0.6.2"]]
+                 [org.clojure/core.async "0.1.278.0-76b25b-alpha"]]
   
   :plugins [[lein-cljsbuild "1.0.3"]
             [lein-figwheel "0.1.3-SNAPSHOT"]]
