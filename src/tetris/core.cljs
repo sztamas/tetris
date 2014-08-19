@@ -112,16 +112,16 @@
 (defn game-running? [game-state] (:running game-state))
 
 (defn game-over! [game]
-  (swap! game (fn [g] (merge g {:running false, :game-over true}))))
+  (swap! game merge {:running false, :game-over true}))
 
 (defn toggle-pause-game! [game]
-  (swap! game #(update-in % [:running] not)))
+  (swap! game update-in [:running] not))
 
 (defn calculate-score [current-score rows-cleared]
   (+ current-score (* 10 rows-cleared) (if (= rows-cleared 4) 20)))
 
 (defn update-score! [game rows-cleared]
-  (swap! game (fn [g] (update-in g [:score] #(calculate-score % rows-cleared)))))
+  (swap! game update-in [:score] #(calculate-score % rows-cleared)))
 
 (defn score->level [score]
   (min MAX-LEVEL (inc (quot score SWITCH-LEVEL-EACH))))
@@ -149,14 +149,14 @@
 
 (defn move-falling-piece! [game dir]
   (try
-    (swap! game (fn [g] (update-in g [:falling-piece] #(move-piece % dir))))
+    (swap! game update-in [:falling-piece] #(move-piece % dir))
   (catch js/Error e)))
 
 (defn make-falling-piece-fall! [game] (move-falling-piece! game :down))
 
 (defn rotate-falling-piece! [game]
   (try
-    (swap! game (fn [g] (update-in g [:falling-piece] rotate-piece)))
+    (swap! game update-in [:falling-piece] rotate-piece)
   (catch js/Error e)))
 
 (defn entered-board? [piece]
@@ -208,7 +208,7 @@
 (defn clear-rows! [game]
   (let [completed-rows (completed-rows (:pieces @game))]
     (when (not (empty? completed-rows))
-      (swap! game #(update-in % [:pieces] clear-rows-from-pieces)))
+      (swap! game update-in [:pieces] clear-rows-from-pieces))
     (count completed-rows)))
 
 ; ---------- Rendering ----------
@@ -308,7 +308,7 @@
 
 (defn start-new-game! [game]
   (reset! game starting-state)
-  (swap! game (fn [g] (-> g (assoc :level 1) (assoc :score 0))))
+  (swap! game merge {:level 1, :score 0})
   (add-next-falling-piece! game))
 
 (defonce game (atom starting-state))
